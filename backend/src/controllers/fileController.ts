@@ -13,7 +13,7 @@ export const uploadFile = (req: Request, res: Response) => {
 export const searchUsers = (req: Request, res: Response) => {
     const query = req.query.q as string;
     if (!query) {
-        return res.status(400).json({ message: 'Query parameter is required' });
+        return res.status(500).json({ message: 'Query parameter is required' });
     }
     const result = searchCSV(query);
     return res.status(200).json({ data: result });

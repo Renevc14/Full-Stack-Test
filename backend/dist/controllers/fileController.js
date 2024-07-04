@@ -17,7 +17,7 @@ exports.uploadFile = uploadFile;
 const searchUsers = (req, res) => {
     const query = req.query.q;
     if (!query) {
-        return res.status(400).json({ message: 'Query parameter is required' });
+        return res.status(500).json({ message: 'Query parameter is required' });
     }
     const result = (0, fileService_1.searchCSV)(query);
     return res.status(200).json({ data: result });

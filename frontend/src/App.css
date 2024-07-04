@@ -19,10 +19,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Alineación superior */
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 20px 10px; /* Ajusta el padding para asegurar buen espacio en dispositivos más pequeños */
+  padding: 20px 10px;
 }
 
 .App-link {
@@ -56,7 +56,7 @@ h1 {
 
 button {
   width: 100%;
-  max-width: 400px; /* Limita el ancho máximo para asegurar que no se expandan demasiado */
+  max-width: 400px;
   padding: 12px;
   font-size: 1rem;
   cursor: pointer;
@@ -75,7 +75,7 @@ button {
 
 .result-item {
   width: 100%;
-  max-width: 400px; /* Limita el ancho máximo para asegurar que no se expandan demasiado */
+  max-width: 400px;
   padding: 12px;
   margin-bottom: 10px;
   border: 1px solid #ccc;

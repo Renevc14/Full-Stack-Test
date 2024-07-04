@@ -47,7 +47,7 @@ const FileUpload: React.FC = () => {
   return (
     <div>
       <div className="file-upload-container">
-        <input type="file" onChange={handleFileChange} />
+        <input type="file" id="file-input" onChange={handleFileChange} />
         <button onClick={handleUpload}>Upload</button>
       </div>
       {message && <p>{message}</p>}

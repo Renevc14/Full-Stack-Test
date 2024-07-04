@@ -18,7 +18,7 @@ const SearchBar: React.FC = () => {
     try {
       const response = await axios.get<any>(`http://localhost:3000/api/users?q=${query}`);
         setResults(response.data.data);
-        console.log(response.data.data); // Verifica los datos en la consola
+        console.log(response.data.data);
     } catch (error) {
       console.error('Error searching:', error);
       setResults([]);

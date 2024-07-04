@@ -1,0 +1,41 @@
+.file-upload-container {
+display:flex;
+align-items: center;
+gap: 20px;
+justify-content: center;
+}
+
+input[type="file"] {
+padding: 10px;
+display:grid;
+justify-content: center;
+font-size: 1rem;
+cursor: pointer;
+border: none;
+border-radius: 5px;
+background-color: #132e63;
+color: white;
+max-width: 250px;
+}
+
+button {
+padding: 10px 20px;
+font-size: 1rem;
+cursor: pointer;
+border: none;
+border-radius: 5px;
+background-color: #61dafb;
+color: white;
+}
+
+p {
+display: flex;
+justify-content: center;
+}
+
+@media (max-width: 768px) {
+.file-upload-container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+}

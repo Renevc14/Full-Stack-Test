@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './SearchBar.css';
 
 interface UserData {
   name: string;
@@ -13,35 +14,41 @@ const SearchBar: React.FC = () => {
   const [results, setResults] = useState<UserData[]>([]);
 
   const handleSearch = async () => {
+    console.log(query)
     try {
-      const response = await axios.get<UserData[]>(`http://localhost:3000/api/users?q=${query}`);
-      if (Array.isArray(response.data)) {
-        setResults(response.data);
-        console.log(response.data); // Verifica los datos en la consola
-      } else {
-        console.error('Received data is not an array:', response.data);
-        setResults([]); // Manejo de caso donde no se recibe un arreglo válido
-      }
+      const response = await axios.get<any>(`http://localhost:3000/api/users?q=${query}`);
+        setResults(response.data.data);
+        console.log(response.data.data); // Verifica los datos en la consola
     } catch (error) {
       console.error('Error searching:', error);
-      setResults([]); // Manejo de error: podría mostrar un mensaje de error al usuario
+      setResults([]);
     }
   };
 
   return (
-    <div>
-      <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
-      <button onClick={handleSearch}>Search</button>
-      <ul>
-        {results.map((item, index) => (
-          <li key={index}>
-            <p>Name: {item.name}</p>
-            <p>City: {item.city}</p>
-            <p>Country: {item.country}</p>
-            <p>Favorite Sport: {item.favorite_sport}</p>
-          </li>
+    <div className="search-container">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="input-search"
+        placeholder="Search users..."
+      />
+      <button onClick={handleSearch} className="button-search">
+        Search
+      </button>
+      <div className="user-list">
+        {results.map((user, index) => (
+          <div key={index} className="user-card">
+            <div>
+              <strong>Name:</strong> {user.name}<br />
+              <strong>City:</strong> {user.city}<br />
+              <strong>Country:</strong> {user.country}<br />
+              <strong>Favorite Sport:</strong> {user.favorite_sport}
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

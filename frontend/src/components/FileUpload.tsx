@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './FileUpload.css';
 
 const FileUpload: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -27,7 +28,6 @@ const FileUpload: React.FC = () => {
         }
       });
 
-      // Asegúrate de que el mensaje es una cadena
       if (typeof response.data === 'object') {
         setMessage(response.data.message || 'File uploaded successfully');
       } else {
@@ -35,7 +35,7 @@ const FileUpload: React.FC = () => {
       }
     } catch (error: any) {
       console.error('Error uploading file:', error);
-      // Asegúrate de que el mensaje de error es una cadena
+
       if (error.response && typeof error.response.data === 'object') {
         setMessage(error.response.data.message || 'File upload failed.');
       } else {
@@ -46,8 +46,10 @@ const FileUpload: React.FC = () => {
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
+      <div className="file-upload-container">
+        <input type="file" onChange={handleFileChange} />
+        <button onClick={handleUpload}>Upload</button>
+      </div>
       {message && <p>{message}</p>}
     </div>
   );

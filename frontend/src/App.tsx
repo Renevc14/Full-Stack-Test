@@ -3,7 +3,7 @@ import FileUpload from './components/FileUpload';
 import SearchBar from './components/SearchBar';
 import './App.css';
 
-export const BACKEND_URL = process.env.FRONTEND_URL || "http://localhost:3000"
+export const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3000"
 
 const App: React.FC = () => {
   return (

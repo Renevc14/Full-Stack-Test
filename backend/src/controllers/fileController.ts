@@ -17,5 +17,5 @@ export const searchUsers = (req: Request, res: Response) => {
         return res.status(500).json({ message: 'Query parameter is required' });
     }
     const result = searchCSV(query);
-    return res.status(200).json({ data: result });
+    return res.status(200).json(result);
 };

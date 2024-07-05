@@ -20,6 +20,6 @@ const searchUsers = (req, res) => {
         return res.status(500).json({ message: 'Query parameter is required' });
     }
     const result = (0, fileService_1.searchCSV)(query);
-    return res.status(200).json({ data: result });
+    return res.status(200).json(result);
 };
 exports.searchUsers = searchUsers;

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { parseCSV, searchCSV } from '../services/fileService';
 import path from 'path';
+import multer from 'multer';
 
 export const uploadFile = (req: Request, res: Response) => {
     if (!req.file) {

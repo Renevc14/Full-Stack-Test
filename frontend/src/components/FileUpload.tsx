@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './FileUpload.css';
+import {BACKEND_URL} from '../App'
 
 const FileUpload: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -22,7 +23,7 @@ const FileUpload: React.FC = () => {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/files', formData, {
+      const response = await axios.post(BACKEND_URL+'/api/files', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
